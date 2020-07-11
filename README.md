@@ -33,6 +33,7 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 - Choose a better template event to include it in the header. The current position is not ideal. Especially for responsive layout.
 - Perhaps switch from an old-school <select> element to something more fancy.
 
+
 ## Installation
 1. [Download the latest release](https://github.com/Sajaki/QuickStyle/releases) and unzip it.
 2. Copy the entire contents from the unzipped folder to `phpBB/ext/paybas/quickstyle/`.

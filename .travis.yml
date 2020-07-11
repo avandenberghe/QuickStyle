@@ -43,6 +43,7 @@ env:
 branches:
   only:
     - develop
+    - master
     - /^\d+(\.\d+)?\.x$/
 
 install:
