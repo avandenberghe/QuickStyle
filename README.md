@@ -49,3 +49,4 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 [GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
 
 © 2015 - PayBas
+© 2020 - Sajaki
