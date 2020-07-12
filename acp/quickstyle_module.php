@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package Quick Style
@@ -11,10 +12,19 @@
 
 namespace paybas\quickstyle\acp;
 
+/**
+ * Class quickstyle_module
+ *
+ * @package paybas\quickstyle\acp
+ */
 class quickstyle_module
 {
 	public $u_action;
-
+	
+	/**
+	 * @param $id
+	 * @param $mode
+	 */
 	public function main($id, $mode)
 	{
 		global $user, $template, $request, $config;

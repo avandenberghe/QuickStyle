@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Quick Style
+ * @package QuickStyle
  * @copyright (c) 2015 PayBas
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
@@ -11,9 +11,19 @@
 
 namespace paybas\quickstyle\event;
 
+use phpbb\config\config;
+use phpbb\db\driver\driver_interface;
+use phpbb\request\request_interface;
+use phpbb\template\template;
+use phpbb\user;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use phpbb\language\language;
 
+/**
+ * Class listener
+ *
+ * @package paybas\quickstyle\event
+ */
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\config\config */
@@ -40,12 +50,12 @@ class listener implements EventSubscriberInterface
 	protected $enabled;
 	protected $default_loc;
 	protected $allow_guests;
-	
+
 	/**
 	 * @var \phpbb\language\language
 	 */
 	protected $language;
-	
+
 	/**
 	 * listener constructor.
 	 *
@@ -58,8 +68,8 @@ class listener implements EventSubscriberInterface
 	 * @param                                   $root_path
 	 * @param                                   $phpEx
 	 */
-	public function __construct(\phpbb\config\config $config, language $language, \phpbb\db\driver\driver_interface $db,
-	\phpbb\request\request_interface $request, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
+	public function __construct(config $config, language $language, driver_interface $db,
+	                            request_interface $request, template $template, user $user, $root_path, $phpEx)
 	{
 		$this->config = $config;
 		$this->language = $language;
@@ -75,7 +85,10 @@ class listener implements EventSubscriberInterface
 		$this->default_loc = isset($config['quickstyle_default_loc']) ? (int) $config['quickstyle_default_loc'] : true;
 		$this->allow_guests = isset($config['quickstyle_allow_guests']) ? (int) $config['quickstyle_allow_guests'] : true;
 	}
-
+	
+	/**
+	 * @return array
+	 */
 	static public function getSubscribedEvents()
 	{
 		return array(
@@ -131,7 +144,7 @@ class listener implements EventSubscriberInterface
 			redirect($redirect);
 		}
 	}
-	
+
 	/**
 	 * handler for core.user_setup
 	 * Handle style switching by guests (not logged in visitors)
@@ -160,7 +173,7 @@ class listener implements EventSubscriberInterface
 			}
 		}
 	}
-	
+
 	/**
 	 * @param      $name
 	 * @param null $default
@@ -169,7 +182,6 @@ class listener implements EventSubscriberInterface
 	private function request_cookie($name, $default = null)
 	{
 		$name = $this->config['cookie_name'] . '_' . $name;
-
 		return $this->request->variable($name, $default, false, 3);
 	}
 }

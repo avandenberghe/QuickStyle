@@ -11,13 +11,26 @@
 
 namespace paybas\quickstyle\migrations;
 
-class release_1_3_0 extends \phpbb\db\migration\migration
+use phpbb\db\migration\migration;
+
+/**
+ * Class release_1_3_0
+ *
+ * @package paybas\quickstyle\migrations
+ */
+class release_1_3_0 extends migration
 {
+	/**
+	 * @return bool
+	 */
 	public function effectively_installed()
 	{
 		return isset($this->config['quickstyle_version']) && version_compare($this->config['quickstyle_version'], '1.3.0', '>=');
 	}
-
+	
+	/**
+	 * @return array
+	 */
 	public function update_data()
 	{
 		return array(
