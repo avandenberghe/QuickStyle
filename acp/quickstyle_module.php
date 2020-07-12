@@ -20,7 +20,7 @@ namespace paybas\quickstyle\acp;
 class quickstyle_module
 {
 	public $u_action;
-	
+
 	/**
 	 * @param $id
 	 * @param $mode

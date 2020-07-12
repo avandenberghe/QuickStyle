@@ -27,7 +27,7 @@ class release_1_3_0 extends migration
 	{
 		return isset($this->config['quickstyle_version']) && version_compare($this->config['quickstyle_version'], '1.3.0', '>=');
 	}
-	
+
 	/**
 	 * @return array
 	 */

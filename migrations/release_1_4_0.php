@@ -20,7 +20,7 @@ use phpbb\db\migration\migration;
  */
 class release_1_4_0 extends migration
 {
-	
+
 	/**
 	 * @return bool
 	 */
@@ -28,7 +28,7 @@ class release_1_4_0 extends migration
 	{
 		return isset($this->config['quickstyle_version']) && version_compare($this->config['rt_version'], '1.4.0', '>=');
 	}
-	
+
 	/**
 	 * @return array
 	 */
@@ -38,7 +38,7 @@ class release_1_4_0 extends migration
 			'\paybas\quickstyle\migrations\release_1_3_0',
 		);
 	}
-	
+
 	/**
 	 * @return array
 	 */
