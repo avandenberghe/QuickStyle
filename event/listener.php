@@ -69,7 +69,7 @@ class listener implements EventSubscriberInterface
 	 * @param                                   $phpEx
 	 */
 	public function __construct(config $config, language $language, driver_interface $db,
-	                            request_interface $request, template $template, user $user, $root_path, $phpEx)
+			request_interface $request, template $template, user $user, $root_path, $phpEx)
 	{
 		$this->config = $config;
 		$this->language = $language;
@@ -85,7 +85,7 @@ class listener implements EventSubscriberInterface
 		$this->default_loc = isset($config['quickstyle_default_loc']) ? (int) $config['quickstyle_default_loc'] : true;
 		$this->allow_guests = isset($config['quickstyle_allow_guests']) ? (int) $config['quickstyle_allow_guests'] : true;
 	}
-	
+
 	/**
 	 * @return array
 	 */
