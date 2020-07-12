@@ -1,0 +1,35 @@
+<?php
+/**
+ *
+ * @package Quick Style
+ * @copyright (c) 2015 PayBas
+ * @license GNU General Public License, version 2 (GPL-2.0)
+ *
+ * Based on the original Prime Quick Style by Ken F. Innes IV (primehalo)
+ *
+ */
+
+namespace paybas\quickstyle\migrations;
+
+class release_1_4_1 extends \phpbb\db\migration\migration
+{
+
+	public function effectively_installed()
+	{
+		return isset($this->config['quickstyle_version']) && version_compare($this->config['rt_version'], '1.4.1', '>=');
+	}
+
+	static public function depends_on()
+	{
+		return array(
+			'\paybas\quickstyle\migrations\release_1_4_0',
+		);
+	}
+
+	public function update_data()
+	{
+		return array(
+			array('config.update', array('rps_version', '1.4.1')),
+		);
+	}
+}

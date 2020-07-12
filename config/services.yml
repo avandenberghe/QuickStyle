@@ -3,6 +3,7 @@ services:
         class: paybas\quickstyle\event\listener
         arguments:
             - '@config'
+            - '@language'
             - '@dbal.conn'
             - '@request'
             - '@template'
