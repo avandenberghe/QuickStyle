@@ -12,6 +12,7 @@
 namespace paybas\quickstyle\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use phpbb\language\language;
 
 class listener implements EventSubscriberInterface
 {

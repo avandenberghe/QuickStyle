@@ -34,7 +34,7 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 
 #### To do list
 - Choose a better template event to include it in the header. The current position is not ideal. Especially for responsive layout.
-- Perhaps switch from an old-school <select> element to something more fancy.
+- Perhaps switch from an old-school select element to something more fancy.
 
 
 ## Installation
