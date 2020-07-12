@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package Quick Style
@@ -11,17 +12,26 @@
 
 namespace paybas\quickstyle\acp;
 
+/**
+ * Class quickstyle_module
+ *
+ * @package paybas\quickstyle\acp
+ */
 class quickstyle_module
 {
 	public $u_action;
 
+	/**
+	 * @param $id
+	 * @param $mode
+	 */
 	public function main($id, $mode)
 	{
-		global $user, $template, $request, $config;
+		global $template, $request, $config, $language;
 
-		$user->add_lang('acp/common');
+		$language->add_lang('acp/common');
 		$this->tpl_name = 'acp_quickstyle';
-		$this->page_title = $user->lang('QUICK_STYLE');
+		$this->page_title = $this->language->lang('QUICK_STYLE');
 
 		$form_key = 'acp_quickstyle';
 		add_form_key($form_key);
@@ -39,7 +49,7 @@ class quickstyle_module
 			$quickstyle_allow_guests = $request->variable('quickstyle_allow_guests', 0);
 			$config->set('quickstyle_allow_guests', $quickstyle_allow_guests);
 
-			trigger_error($user->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
+			trigger_error($this->language->lang('CONFIG_UPDATED') . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(

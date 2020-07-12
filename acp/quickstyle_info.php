@@ -11,8 +11,16 @@
 
 namespace paybas\quickstyle\acp;
 
+/**
+ * Class quickstyle_info
+ *
+ * @package paybas\quickstyle\acp
+ */
 class quickstyle_info
 {
+	/**
+	 * @return array
+	 */
 	function module()
 	{
 		return array(

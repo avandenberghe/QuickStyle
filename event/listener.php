@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package Quick Style
+ * @package QuickStyle
  * @copyright (c) 2015 PayBas
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
@@ -11,8 +11,19 @@
 
 namespace paybas\quickstyle\event;
 
+use phpbb\config\config;
+use phpbb\db\driver\driver_interface;
+use phpbb\request\request_interface;
+use phpbb\template\template;
+use phpbb\user;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use phpbb\language\language;
 
+/**
+ * Class listener
+ *
+ * @package paybas\quickstyle\event
+ */
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\config\config */
@@ -40,9 +51,28 @@ class listener implements EventSubscriberInterface
 	protected $default_loc;
 	protected $allow_guests;
 
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\request\request_interface $request, \phpbb\template\template $template, \phpbb\user $user, $root_path, $phpEx)
+	/**
+	 * @var \phpbb\language\language
+	 */
+	protected $language;
+
+	/**
+	 * listener constructor.
+	 *
+	 * @param \phpbb\config\config              $config
+	 * @param \phpbb\language\language          $language
+	 * @param \phpbb\db\driver\driver_interface $db
+	 * @param \phpbb\request\request_interface  $request
+	 * @param \phpbb\template\template          $template
+	 * @param \phpbb\user                       $user
+	 * @param                                   $root_path
+	 * @param                                   $phpEx
+	 */
+	public function __construct(config $config, language $language, driver_interface $db,
+			request_interface $request, template $template, user $user, $root_path, $phpEx)
 	{
 		$this->config = $config;
+		$this->language = $language;
 		$this->db = $db;
 		$this->request = $request;
 		$this->template = $template;
@@ -56,6 +86,9 @@ class listener implements EventSubscriberInterface
 		$this->allow_guests = isset($config['quickstyle_allow_guests']) ? (int) $config['quickstyle_allow_guests'] : true;
 	}
 
+	/**
+	 * @return array
+	 */
 	static public function getSubscribedEvents()
 	{
 		return array(
@@ -78,7 +111,7 @@ class listener implements EventSubscriberInterface
 
 			if (substr_count($style_options, '<option') > 1)
 			{
-				$this->user->add_lang_ext('paybas/quickstyle', 'quickstyle');
+				$this->language->add_lang('quickstyle', 'paybas/quickstyle');
 
 				$redirect = 'redirect=' . urlencode(str_replace(array('&amp;', '../'), array('&', ''), build_url('style'))); // Build redirect URL
 				$action = append_sid("{$this->root_path}ucp.$this->phpEx", 'i=prefs&amp;mode=personal&amp;' . $redirect); // Build form submit URL + redirect
@@ -88,8 +121,6 @@ class listener implements EventSubscriberInterface
 					'S_QUICK_STYLE_OPTIONS' => ($this->config['override_user_style']) ? '' : $style_options,
 					'S_QUICK_STYLE_DEFAULT_LOC' => $this->default_loc,
 				));
-
-				$debug=1;
 			}
 		}
 	}
@@ -104,7 +135,7 @@ class listener implements EventSubscriberInterface
 		{
 			$style = ($this->config['override_user_style']) ? $this->config['default_style'] : $style;
 
-			$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . intval($style) . ' WHERE user_id = ' . $this->user->data['user_id'];
+			$sql = 'UPDATE ' . USERS_TABLE . ' SET user_style = ' . (int) $style . ' WHERE user_id = ' . (int) $this->user->data['user_id'];
 			$this->db->sql_query($sql);
 
 			// Redirect the user back to their last viewed page (non-AJAX requests)
@@ -117,6 +148,7 @@ class listener implements EventSubscriberInterface
 	/**
 	 * handler for core.user_setup
 	 * Handle style switching by guests (not logged in visitors)
+	 * @param $event
 	 */
 	public function set_guest_style($event)
 	{
@@ -143,11 +175,13 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
+	 * @param      $name
+	 * @param null $default
+	 * @return mixed
 	 */
 	private function request_cookie($name, $default = null)
 	{
 		$name = $this->config['cookie_name'] . '_' . $name;
-
 		return $this->request->variable($name, $default, false, 3);
 	}
 }

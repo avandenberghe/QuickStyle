@@ -2,10 +2,10 @@
     "name": "paybas/quickstyle",
     "type": "phpbb-extension",
     "description": "Adds a style dropdown box to the header of every page for quickly switching between styles. Based on the original Prime Quick Style by primehalo.",
-    "homepage": "https://github.com/PayBas/QuickStyle",
-    "version": "1.4.0",
-    "time": "2020-07-11",
-    "license": "GPL-2.0",
+    "homepage": "https://www.avathar.be/forum/viewtopic.php?f=2&t=4520",
+    "version": "1.4.1",
+    "time": "2020-07-12",
+    "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "Sajaki",
@@ -41,5 +41,8 @@
             "directory": "/versioncheck",
             "filename": "quickstyle.json"
         }
+    },
+    "require-dev": {
+        "senky/phpbb-coding-standard": "dev-master"
     }
 }

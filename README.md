@@ -16,9 +16,10 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 - ACP module to set guest access and whether to use the default template location: `EVENT overall_header_navigation_prepend`
 
 ### Changelog 
-- 1.4.0 (11/07/2020)
+- 1.4.1 (12/07/2020)
   - [NEW] phpBB 3.3 support. 
-    
+  - [FIX] upgrade usage of deprecated phpBB functions
+
 #### Requirements
 - phpBB 3.2.0 or higher
 
@@ -33,7 +34,8 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 
 #### To do list
 - Choose a better template event to include it in the header. The current position is not ideal. Especially for responsive layout.
-- Perhaps switch from an old-school <select> element to something more fancy.
+- Perhaps switch from an old-school select element to something more fancy.
+
 
 ## Installation
 1. [Download the latest release](https://github.com/Sajaki/QuickStyle/releases) and unzip it.
@@ -45,6 +47,7 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 1. Navigate in the ACP to `Customise -> Manage extensions`.
 2. Click the `Disable` link for `Quick Style`.
 3. To permanently uninstall, click `Delete Data`, then delete the `quickstyle` folder from `phpBB/ext/paybas/`.
+
 
 ### License
 [GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
