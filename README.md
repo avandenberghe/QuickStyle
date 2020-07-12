@@ -3,6 +3,8 @@ Quick Style for phpBB 3.2
 
 Extension for phpBB 3.2 to let visitors quickly switch board styles.
 
+[![Build Status](https://travis-ci.org/Sajaki/QuickStyle.svg?branch=develop)](https://travis-ci.org/Sajaki/QuickStyle)
+
 ![Screenshot](screenshot.png)
 
 ##### Based on Prime Quick Style for phpBB 3.0, by Ken F. Innes IV ([primehalo](http://www.absoluteanime.com/admin/mods.htm))
