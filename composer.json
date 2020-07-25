@@ -41,8 +41,6 @@
             "directory": "/versioncheck",
             "filename": "quickstyle.json"
         }
-    },
-    "require-dev": {
-        "senky/phpbb-coding-standard": "dev-master"
     }
+
 }

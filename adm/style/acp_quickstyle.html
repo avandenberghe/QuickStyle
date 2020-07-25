@@ -1,40 +1,40 @@
-<!-- INCLUDE overall_header.html -->
+{% INCLUDE 'overall_header.html' %}
 
-<h1>{L_QUICK_STYLE}</h1>
+<h1>{{ lang('QUICK_STYLE') }}</h1>
 
-<p>{L_QUICK_STYLE_EXPLAIN}</p>
+<p>{{ lang('QUICK_STYLE_EXPLAIN') }}</p>
 
-<form id="quick_style_form" method="post" action="{U_ACTION}">
+<form id="quick_style_form" method="post" action="{{ U_ACTION }}">
 
 	<fieldset>
-		<legend>{L_QUICK_STYLE_SETTINGS}</legend>
+		<legend>{{ lang('QUICK_STYLE_SETTINGS') }}</legend>
 
-		<!-- IF S_OVERRIDE_USER_STYLE --><p class="error"><strong>{L_QUICK_STYLE_OVERRIDE_ENABLED}</strong></p><!-- ENDIF -->
+		{% if S_OVERRIDE_USER_STYLE %}<p class="error"><strong>{{ lang('QUICK_STYLE_OVERRIDE_ENABLED') }}</strong></p>{% endif %}
 	<dl>
-		<dt><label for="quickstyle_default_loc">{L_QUICK_STYLE_DEFAULT_LOC}{L_COLON}</label><br /><span>{L_QUICK_STYLE_DEFAULT_LOC_EXPLAIN}</span></dt>
+		<dt><label for="quickstyle_default_loc">{{ lang('QUICK_STYLE_DEFAULT_LOC') }}{{ lang('COLON') }}</label><br /><span>{{ lang('QUICK_STYLE_DEFAULT_LOC_EXPLAIN') }}</span></dt>
 		<dd>
-			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="1" id="quickstyle_default_loc"<!-- IF S_QUICKSTYLE_DEFAULT_LOC --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="0"<!-- IF not S_QUICKSTYLE_DEFAULT_LOC --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="1" id="quickstyle_default_loc"{% if S_QUICKSTYLE_DEFAULT_LOC %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+			<label><input type="radio" class="radio" name="quickstyle_default_loc" value="0"{% if not S_QUICKSTYLE_DEFAULT_LOC %} checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 		</dd>
 	</dl>
 	<dl>
-		<dt><label for="quickstyle_allow_guests">{L_QUICK_STYLE_ALLOW_GUESTS}{L_COLON}</label><br /><span>{L_QUICK_STYLE_ALLOW_GUESTS_EXPLAIN}</span></dt>
+		<dt><label for="quickstyle_allow_guests">{{ lang('QUICK_STYLE_ALLOW_GUESTS') }}{{ lang('COLON') }}</label><br /><span>{{ lang('QUICK_STYLE_ALLOW_GUESTS_EXPLAIN') }}</span></dt>
 		<dd>
-			<label><input type="radio" class="radio" name="quickstyle_allow_guests" value="1" id="quickstyle_allow_guests"<!-- IF S_QUICKSTYLE_ALLOW_GUESTS --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
-			<label><input type="radio" class="radio" name="quickstyle_allow_guests" value="0"<!-- IF not S_QUICKSTYLE_ALLOW_GUESTS --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+			<label><input type="radio" class="radio" name="quickstyle_allow_guests" value="1" id="quickstyle_allow_guests"{% if S_QUICKSTYLE_ALLOW_GUESTS %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+			<label><input type="radio" class="radio" name="quickstyle_allow_guests" value="0"{% if not S_QUICKSTYLE_ALLOW_GUESTS %} checked="checked"{% endif %} /> {{ lang('NO') }}</label>
 		</dd>
 	</dl>
 	</fieldset>
 
 	<fieldset>
-		<legend>{L_ACP_SUBMIT_CHANGES}</legend>
+		<legend>{{ lang('ACP_SUBMIT_CHANGES') }}</legend>
 		<p class="submit-buttons">
-			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
-			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
 		</p>
-		{S_FORM_TOKEN}
+		{{ S_FORM_TOKEN }}
 	</fieldset>
 
 </form>
 
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}
