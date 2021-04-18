@@ -157,7 +157,7 @@ class listener implements EventSubscriberInterface
 			$style = $event['style_id'];
 
 			// Set the style to display
-			$event['style_id'] = ($style) ? $style : $this->request_cookie('style', intval($this->user->data['user_style']));
+			$event['style_id'] = ($style) ? $style : $this->request_cookie('style', (int)($this->user->data['user_style']));
 
 			// Set the cookie (and redirect) when the style is switched
 			if ($style = $this->request->variable('quick_style', 0))
