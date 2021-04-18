@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Adds a style dropdown box to the header of every page for quickly switching between styles. Based on the original Prime Quick Style by primehalo.",
     "homepage": "https://www.avathar.be/forum/viewtopic.php?f=2&t=4520",
-    "version": "1.4.2",
-    "time": "2020-07-25",
+    "version": "1.4.3",
+    "time": "2021-04-18",
     "license": "GPL-2.0-only",
     "authors": [
         {
@@ -27,8 +27,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
-        "phpbb/phpbb": ">=3.2.0",
+        "php": ">=7.1",
+        "phpbb/phpbb": ">=3.2.6",
         "composer/installers": "~1.0"
     },
     "extra": {
@@ -39,7 +39,8 @@
         "version-check": {
             "host": "www.avathar.be",
             "directory": "/versioncheck",
-            "filename": "quickstyle.json"
+            "filename": "quickstyle.json",
+            "ssl": true
         }
     }
 

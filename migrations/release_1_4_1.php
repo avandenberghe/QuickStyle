@@ -26,7 +26,7 @@ class release_1_4_1 extends migration
 	 */
 	public function effectively_installed()
 	{
-		return isset($this->config['quickstyle_version']) && version_compare($this->config['rt_version'], '1.4.1', '>=');
+		return isset($this->config['quickstyle_version']) && version_compare($this->config['quickstyle_version'], '1.4.1', '>=');
 	}
 
 	/**
@@ -45,7 +45,7 @@ class release_1_4_1 extends migration
 	public function update_data()
 	{
 		return array(
-			array('config.update', array('rps_version', '1.4.1')),
+			array('config.update', array('quickstyle_version', '1.4.1')),
 		);
 	}
 }

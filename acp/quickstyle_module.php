@@ -27,9 +27,12 @@ class quickstyle_module
 	 */
 	public function main($id, $mode)
 	{
-		global $template, $request, $config, $language;
+		global $phpbb_container;
+        $config = $phpbb_container->get('config');
+        $template = $phpbb_container->get('template');
+        $request = $phpbb_container->get('request');
+        $language = $phpbb_container->get('language');
 
-		$language->add_lang('acp/common');
 		$this->tpl_name = 'acp_quickstyle';
 		$this->page_title = $language->lang('QUICK_STYLE');
 

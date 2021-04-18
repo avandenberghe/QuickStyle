@@ -16,12 +16,14 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 - ACP module to set guest access and whether to use the default template location: `EVENT overall_header_navigation_prepend`
 
 ### Changelog 
-- 1.4.2 (25/07/2020)
-  - [FIX] acp error 
+- 1.4.3 (in progress)
+  - [FIX] don't use single or double quotes in language strings
+  - [FIX] change global language to container
+  - [FIX] migration error
   - [CHG] change to twig syntax, fix css path
   
 - 1.4.1 (12/07/2020)
-  - [NEW] phpBB 3.3 support. 
+  - [NEW] phpBB 3.2 support. 
   - [FIX] upgrade usage of deprecated phpBB functions
 
 #### Requirements
