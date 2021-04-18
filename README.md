@@ -17,6 +17,7 @@ Extension for phpBB 3.2 to let visitors quickly switch board styles.
 
 ### Changelog 
 - 1.4.3 (in progress)
+  - [FIX] don't use single or double quotes in language strings
   - [FIX] change global language to container
   - [FIX] migration error
   - [CHG] change to twig syntax, fix css path
